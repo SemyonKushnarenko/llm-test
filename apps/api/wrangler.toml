@@ -6,7 +6,7 @@ compatibility_flags = ["nodejs_compat"]
 [[d1_databases]]
 binding = "DB"
 database_name = "todo-db"
-database_id = "your-database-id-here" # Replace with actual D1 database ID
+database_id = ""  
 migrations_dir = "src/migrations"
 
 [vars]
@@ -16,7 +16,7 @@ migrations_dir = "src/migrations"
 [env.production]
 name = "todo-api-prod"
 
-[env.production.d1_databases]
+[[env.production.d1_databases]]
 binding = "DB"
 database_name = "todo-db"
 database_id = "your-production-database-id-here"
