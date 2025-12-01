@@ -62,10 +62,12 @@ function App() {
   const [showForm, setShowForm] = useState(false);
   const queryClient = useQueryClient();
 
-  const { data: tasks = [], isLoading, error } = useQuery(
+  const { data: tasks = [], isLoading, error } = useQuery<TaskResponse[], Error>(
     ['tasks', filters],
     () => fetchTasks(filters)
   );
+
+  console.log(import.meta.env);
 
   const createMutation = useMutation(createTask, {
     onSuccess: () => {
@@ -124,7 +126,7 @@ function App() {
 
       {error && (
         <div className="error-message" role="alert">
-          Error: {(error as Error).message}
+          Error: {error.message}
         </div>
       )}
 
