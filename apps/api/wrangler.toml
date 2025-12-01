@@ -1,0 +1,23 @@
+name = "todo-api"
+main = "src/index.ts"
+compatibility_date = "2023-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "todo-db"
+database_id = "your-database-id-here" # Replace with actual D1 database ID
+migrations_dir = "src/migrations"
+
+[vars]
+# Environment variables
+# OPENAI_API_KEY will be set via wrangler secret put
+
+[env.production]
+name = "todo-api-prod"
+
+[env.production.d1_databases]
+binding = "DB"
+database_name = "todo-db"
+database_id = "your-production-database-id-here"
+migrations_dir = "src/migrations"
