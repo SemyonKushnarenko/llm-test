@@ -197,7 +197,7 @@ cd apps/api && pnpm build
 1. **Deploy the API (Cloudflare Workers):**
    ```bash
    cd apps/api
-   pnpm deploy
+   pnpm deploy --filter ./apps/api
    ```
    
    Note: Make sure to set production secrets:

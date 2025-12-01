@@ -3,13 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "Full-Stack LLM To-Do App - Cloudflare Monorepo",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
-    "dev": "pnpm --parallel --filter './apps/*' dev",
-    "build": "pnpm --recursive build",
+    "dev": "node api.js && pnpm -r --parallel --filter ./apps/* dev",
+    "build": "node api.js && pnpm --recursive build",
     "test": "pnpm --recursive test",
     "db:migrate": "cd apps/api && wrangler d1 migrations apply todo-db --remote",
     "db:migrate:local": "cd apps/api && wrangler d1 migrations apply todo-db --local",
@@ -26,4 +22,3 @@
     "pnpm": ">=8.0.0"
   }
 }
-
